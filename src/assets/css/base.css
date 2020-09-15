@@ -1,0 +1,65 @@
+@import './normalize.css';
+/*公共样式*/
+html{
+  font-size: 100px;
+}
+a{
+  text-decoration:none;
+  color:black;
+}
+
+/*响应式字体大小*/
+@media screen and (max-width: 321px) {
+
+  body {
+
+      font-size:16px
+
+  }
+
+}
+@media screen and (min-width: 321px) and (max-width:400px) {
+
+  body {
+
+      font-size:17px
+
+  }
+
+}
+@media screen and (min-width: 400px) {
+
+  body {
+
+      font-size:19px
+
+  }
+
+}
+@media screen and (max-width: 321px) {
+
+  header,footer {
+
+      font-size:16px
+
+  }
+
+}
+@media screen and (min-width: 321px) and (max-width:400px) {
+
+  header,footer {
+
+      font-size:17px
+
+  }
+
+}
+@media screen and (min-width: 400px) {
+
+  header,footer {
+
+      font-size:19px
+
+  }
+
+}
