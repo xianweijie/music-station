@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-const home = () => (import('../views/home/home.vue'))
+import Router from 'vue-router'
+import home from '../views/home/home.vue'
 const classify = () => (import('../views/classify/classify.vue'))
 const cart = () => (import('../views/cart/cart.vue'))
 const mine = () => (import('../views/mine/mine.vue'))
@@ -12,8 +12,8 @@ const routes = [
   { path: '/cart', component: cart },
   { path: '/mine', component: mine }
 ]
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new Router({
+  mode: 'history',
   routes
 })
 export default router

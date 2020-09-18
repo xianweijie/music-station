@@ -1,8 +1,11 @@
 <template>
-    <slot name="barItems" :itemInfo="list"></slot>
+  <div>
+    <tabbar :dataList='list'></tabbar>
+  </div>
 </template>
 
 <script>
+import tabBar from 'components/common/tabbar/tabBar.vue'
 export default {
   name: 'tabBar-item',
   data () {
@@ -44,26 +47,11 @@ export default {
     }
   },
   watch: {
-    $route (to, from) {
-      this.list.map((item) => {
-        if (to.path.indexOf(item.path) !== -1) {
-          item.active = true
-        } else {
-          item.active = false
-        }
-      })
-    }
+  },
+  components: {
+    tabbar: tabBar
   }
 }
 </script>
 <style>
-.tab-bar-item-img{
-  width:0.5rem;
-}
-.tab-bar-item-img + p{
-  margin:0;
-}
-.text-active{
-  color:#d4237a;
-}
 </style>

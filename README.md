@@ -1,4 +1,4 @@
-# my-mmall
+# newvue
 
 ## Project setup
 ```

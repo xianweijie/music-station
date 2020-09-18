@@ -3,11 +3,6 @@
 html{
   font-size: 100px;
 }
-a{
-  text-decoration:none;
-  color:black;
-}
-
 /*响应式字体大小*/
 @media screen and (max-width: 321px) {
 
@@ -62,4 +57,14 @@ a{
 
   }
 
+}
+/* 其他类型样式 */
+a{
+  text-decoration:none;
+  color:black;
+}
+ul,li,p{
+  list-style: none;
+  padding:0;
+  margin:0;
 }
