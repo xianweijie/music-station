@@ -24,19 +24,27 @@ export default {
 
 <style scoped>
 .nav_bar{
-  height:1rem;
-  line-height:1rem;
+  height: 6vh;
+  width: 100vw;
   display:flex;
   text-align:center;
   box-shadow:0 1px 1px rgba(100,100,100,0.2);
+  position: fixed;
+  top: 0;
+  line-height: 7vh;
+  z-index: 9;
 }
 .nav_bar_left{
   flex:1
 }
 .nav_bar_middle{
-  flex:4
+  flex:4；
 }
 .nav_bar_right{
   flex:1
+}
+.navbar_color{
+    background-image: linear-gradient(45deg , #ff5f6d, #ffc371);
+    color:white;
 }
 </style>

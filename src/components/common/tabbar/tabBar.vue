@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <ui-tabbar flex="true">
-      <template v-for="item in list">
-        <router-link :to="item.path" :key="item.name" class="link">
-          <ui-tabbar-item :key="item.name">
-              <img slot="icon" :src="item.active? item.imgSrcActive: item.imgSrc" alt="item.name">
-              <span :class="item.active?'a':'b'">{{item.info}}</span>
-          </ui-tabbar-item>
-        </router-link>
-      </template>
-    </ui-tabbar>
-  </div>
+  <ui-tabbar flex="true" class="tabbar">
+    <template v-for="item in list">
+      <router-link :to="{name: item.listName,path: item.path}" :key="item.name" class="link">
+        <ui-tabbar-item :key="item.name" class="tabbar_item">
+            <img class="icon_size" slot="icon" :src="item.active? item.imgSrcActive: item.imgSrc" alt="item.name">
+            <span :class="item.active?'active_style':'normal_style'">{{item.info}}</span>
+        </ui-tabbar-item>
+      </router-link>
+    </template>
+  </ui-tabbar>
 </template>
 
 <script>
@@ -44,14 +42,29 @@ export default {
 }
 </script>
 <style scoped>
+.tabbar{
+  height: 8vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
 .link{
-  display: inline-block;
+  height: 100%;
   flex: 1;
 }
-.a{
+.active_style,.normal_style{
+  font-size: 2vh;
+  font-weight: bold;
+}
+.icon_size{
+  width: 100%;
+  height: 100%;
+}
+.active_style{
   color: #e6399b
 }
-.b{
-  color:#696969;
+.normal_style{
+  color:#696969
 }
 </style>

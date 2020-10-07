@@ -1,16 +1,14 @@
 import Router from 'vue-router'
 import home from '../views/home/home.vue'
 const classify = () => (import('../views/classify/classify.vue'))
-const cart = () => (import('../views/cart/cart.vue'))
-const mine = () => (import('../views/mine/mine.vue'))
+const follow = () => (import('../views/follow/follow.vue'))
 
 const routes = [
   // 任何根路径下为空的路径都重定向到/home
   { path: '', redirect: '/home' },
-  { path: '/home', component: home },
-  { path: '/classify', component: classify },
-  { path: '/cart', component: cart },
-  { path: '/mine', component: mine }
+  { path: '/home', component: home, name: 'home' },
+  { path: '/classify', component: classify, name: 'classify' },
+  { path: '/follow', component: follow, name: 'follow' }
 ]
 const router = new Router({
   mode: 'history',

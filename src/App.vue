@@ -1,12 +1,14 @@
 <template>
   <div>
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <tabBar></tabBar>
   </div>
 </template>
 
 <script>
-import tabBar from 'components/content/tabBar-content.vue'
+import tabBar from 'components/common/tabbar/tabBar-content.vue'
 export default {
   name: 'App',
   components: {

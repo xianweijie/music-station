@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <tabbar :dataList='list'></tabbar>
-  </div>
+  <tabbar :dataList='list'></tabbar>
 </template>
 
 <script>
-import tabBar from 'components/common/tabbar/tabBar.vue'
+import tabBar from './TabBar.vue'
 export default {
   name: 'tabBar-item',
   data () {
@@ -16,7 +14,7 @@ export default {
           info: '主页',
           imgSrc: require('@/assets/img/tabbar/home.svg'),
           imgSrcActive: require('@/assets/img/tabbar/home_active.svg'),
-          active: false,
+          active: true,
           path: '/home'
         },
         {
@@ -28,20 +26,12 @@ export default {
           path: '/classify'
         },
         {
-          listName: 'cart',
-          info: '购物车',
-          imgSrc: require('@/assets/img/tabbar/cart.svg'),
-          imgSrcActive: require('@/assets/img/tabbar/cart_active.svg'),
+          listName: 'follow',
+          info: '关注',
+          imgSrc: require('@/assets/img/tabbar/follow.svg'),
+          imgSrcActive: require('@/assets/img/tabbar/follow_active.svg'),
           active: false,
-          path: '/cart'
-        },
-        {
-          listName: 'mine',
-          info: '购物车',
-          imgSrc: require('@/assets/img/tabbar/mine.svg'),
-          imgSrcActive: require('@/assets/img/tabbar/mine_active.svg'),
-          active: false,
-          path: '/mine'
+          path: '/follow'
         }
       ]
     }
