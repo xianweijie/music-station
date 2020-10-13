@@ -14,6 +14,8 @@
       :pullUpLoad="true"
       :click="true"
       :enabled="enabled"
+      :height="86"
+      :cssStyle="cssStyle"
       @onScroll="getScrollPosition"
       @pullUp="pullingUpHandler">
       <!-- 轮播图部分内容 -->
@@ -57,7 +59,11 @@ export default {
       backTopShow: false,
       requestName: 'hotArtistsData',
       showloadMore: false,
-      enabled: true
+      enabled: true,
+      cssStyle: {
+        height: '86vh',
+        marginTop: '6vh'
+      }
     }
   },
   created () {
@@ -72,6 +78,10 @@ export default {
   mounted () {
     // 把bscroll实例保存到组件内
     this.scroll = this.$refs.scroll
+  },
+  befroeDestroy () {
+    // 销毁组件前把Bscroll销毁
+    this.scroll.destroy()
   },
   methods: {
     backTopHandler () {

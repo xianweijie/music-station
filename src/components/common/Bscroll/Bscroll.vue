@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" ref="wrapper">
+  <div class="wrapper" ref="wrapper" :style="cssStyle">
     <div class="content">
       <slot></slot>
     </div>
@@ -39,6 +39,9 @@ export default {
     enabled: {
       type: Boolean,
       default: true
+    },
+    cssStyle: {
+      type: Object
     }
   },
   data () {
@@ -103,6 +106,10 @@ export default {
       setTimeout(() => {
         _this.bscroll.refresh()
       }, 600)
+    },
+    // 销毁Bscroll方法
+    destory () {
+      this.bscroll.destroy()
     }
   }
 }
@@ -110,8 +117,6 @@ export default {
 
 <style scoped>
 .wrapper{
-  margin-top: 6vh;
-  height: 86vh;
   overflow: hidden;
 }
 </style>

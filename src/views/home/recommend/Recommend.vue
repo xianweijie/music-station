@@ -42,7 +42,7 @@ export default {
 <style scoped>
 /* @import url(); 引入css类 */
 .recommend_box{
-  padding: 2vh;
+  padding: 1vh;
   border-bottom: 1vh solid #DCDCDC;
   height: 18vh;
 }
@@ -69,6 +69,10 @@ export default {
 }
 .recommend_item_text{
   font-size: 2vw;
-  opacity: 0.6;
+  color: rgba(153,153,153,0.7);
+  width: 18vw;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 </style>

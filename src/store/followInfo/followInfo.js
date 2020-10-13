@@ -87,10 +87,44 @@ export default {
       if (type === 'newCdData') {
         state.requestParams.newCdList.params.offset += 10
       }
+    },
+    /* 01.提交删除store中followDataa数据
+        payload:
+          {listName, removeData}
+    */
+    DELETFOLLOWDATA (state, payload) {
+      const { listName, removeData } = payload
+      var list = state.followData[listName]
+      // 去除state.followData[listName]数组上的另外一个数组removeData的相同数据
+      for (var i = 0; i < removeData.length; i++) {
+        for (var j = 0; j < list.length; j++) {
+          if (list[j].name === removeData[i]) {
+            list.splice(j, 1)
+            j--
+          }
+        }
+      }
+    },
+    /* 02.提交改变database对应数组中对象的checked
+        payload:
+          {listName, removeData}
+    */
+    CHANGEDATABASECHECKED (state, payload) {
+      const { listName, removeData } = payload
+      let list = state.dataBase[listName] // eslint-disable-line no-unused-vars
+      // 把dataBase数组中对应removeData的数组对象checked变为false
+      list = list.filter(item => {
+        for (var i = 0; i < removeData.length; i++) {
+          if (item.name === removeData[i]) {
+            item.checked = false
+            return item
+          }
+        }
+      })
     }
   },
   actions: {
-    // home组件需要请求初始化数据
+    // home组件数据请求
     requestTabsData ({ dispatch }, payload) {
       // 分发到classificationRequest根据payload值按需请求
       // payload值可能为'all'/'songData'/'hotArtistsData'/'newCdData'
@@ -208,6 +242,42 @@ export default {
         return arrItem.name === item.name
       })
       return Promise.resolve(hasData)
+    },
+    // follow页面actions
+    /*
+    payload参数
+      listName（string）：当前需要操作的store-followData对应的数组名
+      removeData(array)：需要从store-followData删除的项
+    返回值（Promise对象）:
+      1.传入removeData为空时,返回false
+      2.传入removeData非空,返回ftrue
+    */
+    REMOVEFOLLOWDATA ({ commit }, payload) {
+      const { removeData } = payload
+      // follow分发载荷数组为空则返回false
+      if (removeData.length === 0) {
+        return Promise.resolve(false)
+      }
+      /*
+      非空时执行异步函数
+        01.提交删除store中followDataa数据
+        02.提交改变database对应数组中对象的checked
+      */
+      async function toCommit () {
+        try {
+          await commit('DELETFOLLOWDATA', payload)
+        } catch (err) {
+          return Promise.reject(new Error('提交失败'))
+        }
+        try {
+          await commit('CHANGEDATABASECHECKED', payload)
+        } catch (err) {
+          return Promise.reject(new Error('提交失败'))
+        }
+        return await Promise.resolve(true)
+      }
+      // 非空返回一个true
+      return toCommit()
     }
   }
 }

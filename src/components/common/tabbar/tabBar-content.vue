@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import tabBar from './TabBar.vue'
+import tabBar from './tabBar.vue'
 export default {
   name: 'tabBar-item',
   data () {
