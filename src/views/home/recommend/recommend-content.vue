@@ -11,7 +11,7 @@ export default {
   name: 'recommendContent',
   data () {
     return {
-      list: '',
+      list: [],
       // offset为页面展示数量
       offset: 4
     }

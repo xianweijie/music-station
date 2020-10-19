@@ -4,7 +4,7 @@
       <slot name="barLeft"></slot>
     </div>
     <div class="nav_bar_middle">
-      <slot name="barMiddle">购物街</slot>
+      <slot name="barMiddle"></slot>
     </div>
     <div class="nav_bar_right">
       <slot name="barRight"></slot>
@@ -16,7 +16,6 @@
 export default {
   data () {
     return {
-
     }
   }
 }

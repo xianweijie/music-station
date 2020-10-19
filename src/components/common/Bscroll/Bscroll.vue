@@ -36,6 +36,7 @@ export default {
       type: Boolean,
       default: false
     },
+    // ****
     enabled: {
       type: Boolean,
       default: true
@@ -73,11 +74,8 @@ export default {
   },
   watch: {
     // 侦听父组件enabled值变化，动态开启或关闭滚动
-    enabled: {
-      handler (val) {
-        this.bscroll.enabled = val
-      },
-      immediate: true
+    enabled (val) {
+      this.bscroll.enabled = val
     }
   },
   methods: {

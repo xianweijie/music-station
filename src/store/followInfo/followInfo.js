@@ -257,6 +257,9 @@ export default {
       // follow分发载荷数组为空则返回false
       if (removeData.length === 0) {
         return Promise.resolve(false)
+      } else {
+        // 非空返回一个true
+        return toCommit()
       }
       /*
       非空时执行异步函数
@@ -276,8 +279,6 @@ export default {
         }
         return await Promise.resolve(true)
       }
-      // 非空返回一个true
-      return toCommit()
     }
   }
 }

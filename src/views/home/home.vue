@@ -2,9 +2,7 @@
   <div id="home">
     <!-- navbar部分内容 -->
     <navbar class="navbar_color">
-      <template #barLeft>a</template>
       <template #barMiddle>Music</template>
-      <template #barRight>c</template>
     </navbar>
     <!-- 可滚动区域 -->
     <scroll ref="scroll"
@@ -48,7 +46,7 @@ import loadmore from 'components/common/loadMore/loadMore.vue'
 import swiper from './swiper/swiper-content.vue'
 import recommend from './recommend/recommend-content.vue'
 import weekRecommend from './week-recommend/week-recommend-content.vue'
-import homeBarControl from './home-barControl/home-barControl.vue'
+// import homeBarControl from './home-barControl/home-barControl.vue'
 // 导入vuex辅助函数
 import { mapState } from 'vuex'
 export default {
@@ -97,7 +95,7 @@ export default {
         this.showloadMore = false
         this.enabled = true
         this.scroll.finishPullUp()
-      }, 2000)
+      }, 3000)
     },
     // 获取bscroll滚动位置
     // 当前滚动高度大于800时，backTop按钮显示
@@ -127,7 +125,7 @@ export default {
     swiper,
     recommend,
     weekRecommend,
-    homeBarControl,
+    homeBarControl: () => (import('./home-barControl/home-barControl.vue')),
     scroll,
     backtop,
     loadmore

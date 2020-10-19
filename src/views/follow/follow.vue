@@ -55,6 +55,7 @@ import bscroll from 'components/common/Bscroll/Bscroll.vue'
 import contentbar from './contentBar/contentBar.vue'
 import sidebar from './sideBar/sideBar.vue'
 import { mapState } from 'vuex'
+import { Toast } from 'mint-ui'
 export default {
   name: 'follow',
   data () {
@@ -93,9 +94,21 @@ export default {
         removeData: this.notFollowList
       }).then(res => {
         if (res) {
-          // 返回值为true则隐藏蒙版及清空不关注数组
+          // 返回值为true则隐藏蒙版及清空notFollowList数组
           this.maskingShow = false
           this.notFollowList = []
+          Toast({
+            message: '操作成功',
+            position: 'middle',
+            duration: 1000
+          })
+        } else {
+          // 返回值为false弹出TIPS
+          Toast({
+            message: '请选择要删除的内容',
+            position: 'middle',
+            duration: 1000
+          })
         }
       })
     },

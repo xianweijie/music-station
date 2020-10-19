@@ -9,7 +9,7 @@ export default {
   data () {
     return {
       hasData: false,
-      list: ''
+      list: []
     }
   },
   created () {

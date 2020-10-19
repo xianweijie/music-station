@@ -29,7 +29,7 @@ export default {
   watch: {
     $route (to, from) {
       this.list.map(function (item) {
-        if (to.path === item.path) {
+        if (to.fullPath.indexOf(item.path) !== -1) {
           item.active = true
         } else {
           item.active = false
@@ -54,7 +54,7 @@ export default {
   flex: 1;
 }
 .active_style,.normal_style{
-  font-size: 2vh;
+  font-size: 4vw;
   font-weight: bold;
 }
 .icon_size{

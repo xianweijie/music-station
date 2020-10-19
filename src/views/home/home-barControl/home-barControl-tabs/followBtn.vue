@@ -22,7 +22,17 @@ import { Toast } from 'mint-ui'
 export default {
   name: 'followBtn',
   inheritAttrs: false,
-  props: ['item', 'name'],
+  props: {
+    item: {
+      type: Object,
+      default: function () {
+        return {}
+      }
+    },
+    name: {
+      type: String
+    }
+  },
   data () {
     return {
     }
