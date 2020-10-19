@@ -2,7 +2,7 @@
   <div class="tabs_box">
     <div v-for="item in songData" :key="item.name" class="tabs_item">
       <div class="tabs_item_box">
-        <img :src="item.url" :alt="item.name" class="tabs_item_img">
+        <img src="~@/assets/img/home/loading.gif" :alt="item.name" class="tabs_item_img" @load="onLoad($event, item.url)">
         <p class="tabs_item_text">&lceil; {{item.name}} &rfloor;</p>
       </div>
       <!-- 关注与取关按钮 -->
@@ -22,6 +22,11 @@ export default {
   props: ['scroll'],
   data () {
     return {
+    }
+  },
+  methods: {
+    onLoad (e, url) {
+      e.target.src = url
     }
   },
   computed: {
