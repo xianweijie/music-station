@@ -59,7 +59,8 @@ export default {
       scrollY: this.scrollY,
       click: this.click,
       probeType: this.probeType,
-      pullUpLoad: true
+      pullUpLoad: true,
+      bounce: true
     })
     // 把实例保持到组件数据
     this.bscroll = Bscroll
@@ -73,7 +74,7 @@ export default {
     }
   },
   watch: {
-    // 侦听父组件enabled值变化，动态开启或关闭滚动
+    // 侦听父组件enabled值变化，动态开启或关闭滚动。
     enabled (val) {
       this.bscroll.enabled = val
     }

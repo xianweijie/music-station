@@ -4,7 +4,7 @@
     <div id="recommend">
       <div v-for="item in list" :key="item.name" class="recommend_item">
         <a :href="item.path">
-          <img :src="item.picUrl" :alt="item.name" class="recommend_item_img">
+          <img v-lazy="item.picUrl" :alt="item.name" class="recommend_item_img">
           <p class="recommend_item_text">{{item.name}}</p>
         </a>
       </div>
@@ -69,7 +69,7 @@ export default {
 }
 .recommend_item_text{
   font-size: 2vw;
-  color: rgba(153,153,153,0.7);
+  color: #363636;
   width: 18vw;
   overflow: hidden;
   text-overflow:ellipsis;

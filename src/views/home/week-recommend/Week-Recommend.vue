@@ -8,7 +8,7 @@
           tag="div"
           id="week_recommend">
           <div v-for="(item) in newList" :key="item.name" class="week_recommend_item">
-            <img :src="item.img1v1Url" alt="item.name" class="week_recommend_item_img">
+            <img v-lazy="item.img1v1Url" alt="item.name" class="week_recommend_item_img">
             <p class="week_recommend_item_text">{{item.name}}</p>
           </div>
         </transition-group>

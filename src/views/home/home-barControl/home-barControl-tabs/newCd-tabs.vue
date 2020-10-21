@@ -2,14 +2,13 @@
   <div class="tabs_box">
     <div v-for="item in newCdData" :key="item.name" class="tabs_item">
       <div class="tabs_item_box">
-        <img src="~@/assets/img/home/loading.gif" :alt="item.name" class="tabs_item_img" ref="img" @load="onLoad($event, item.url)">
+        <img v-lazy="item.url" :alt="item.name" class="tabs_item_img">
         <p class="tabs_item_text">&lceil; {{item.name}} &rfloor;</p>
       </div>
       <!-- 关注与取关按钮 -->
       <!-- item:为遍历出来的数据源   name为当前所在组件在store上key-->
       <followBtn :item="item" name="newCdList"></followBtn>
     </div>
-    <followBtn></followBtn>
   </div>
 </template>
 
@@ -23,11 +22,6 @@ export default {
   name: 'newCd',
   data () {
     return {
-    }
-  },
-  methods: {
-    onLoad (e, url) {
-      e.target.src = url
     }
   },
   computed: {

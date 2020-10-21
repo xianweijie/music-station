@@ -6,10 +6,17 @@ import App from './App.vue'
 import { Tabbar, TabItem, Swipe, SwipeItem, Spinner, TabContainer, TabContainerItem, Button, Cell } from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import './assets/css/base.css'
+import VueLazyLoad from 'vue-lazyload'
 
 /* eslint-disable */
 Vue.config.productionTip = false
 Vue.use(Router)
+/* vue-lazyload配置项 */
+Vue.use(VueLazyLoad, {
+  loading: require('./assets/img/home/loading.gif'),
+  error: require('./assets/img/home/error.jpg')
+})
+
 // mint-ui组件全局注册
 Vue.component('ui-tabbar', Tabbar)
 Vue.component('ui-tabbar-item', TabItem)

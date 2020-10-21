@@ -59,6 +59,14 @@ export default {
       }
     }
   },
+  watch: {
+    followData: {
+      handler (val) {
+        console.log(val)
+      },
+      immedita: true
+    }
+  },
   methods: {
     // 由touchstart事件触发，向父组件follwo传递tabs的data-name
     handler (e) {

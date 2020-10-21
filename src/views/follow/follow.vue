@@ -4,17 +4,16 @@
     <header class="header_title">
       <p>我的关注</p>
       <button
-        v-show="showButton">
-        <span
-          v-if="maskingShow"
-          @touchstart="hideMasking">
-          取消
-        </span>
-        <span
-          v-else
-          @touchstart="showMasking">
-          管理
-        </span>
+        v-if="maskingShow"
+        key="取消"
+        @touchstart="hideMasking">
+        取消
+      </button>
+      <button
+        v-else
+        key="管理"
+        @touchstart="showMasking">
+        管理
       </button>
     </header>
     <!-- 页面选项卡内容&&可滚动区域 -->

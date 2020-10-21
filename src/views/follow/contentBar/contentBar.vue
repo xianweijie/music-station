@@ -75,10 +75,12 @@ export default {
     // 父组件follow在蒙版开启状态下点击取消关闭蒙版后，调用的子组件清空选中样式isChecked的方法
     clearChecked () {
       // 循环所有checkbox元素，删除class isChecked并将所有checked设置为false
-      this.$refs.itemList.forEach(item => {
-        item.classList.remove('isChecked')
-        item.checked = false
-      })
+      if (this.$refs.itemList) {
+        this.$refs.itemList.forEach(item => {
+          item.classList.remove('isChecked')
+          item.checked = false
+        })
+      }
     }
   },
   watch: {
